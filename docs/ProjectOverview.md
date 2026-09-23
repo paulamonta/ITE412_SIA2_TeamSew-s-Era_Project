@@ -57,4 +57,7 @@ The system will allow customers to browse tailor profiles, compare services and 
 
 ### Testing Tools
 - Postman (API Testing)
-- Jest (Unit Testing)
+
+## 5. Integration Pattern & Rationale
+
+The Sew’sEra system will use a REST API integration pattern to allow its core modules to communicate through HTTP requests and JSON responses. The REST API will provide endpoints for retrieving and adding customer and order records. REST was selected because it uses standard HTTP methods, is simple to implement using Node.js and Express, and can be tested using Postman. This approach provides a simple communication layer between the system modules.
