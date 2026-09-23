@@ -1,11 +1,40 @@
+# Sew’sEra: All-in-One Tailoring Marketplace – Book Seamlessly, Find Tailors with Ease, and Navigate with GPS Mapping
 
-  # Professional Portfolio Website
+Course: ITE412 – System Integration and Architecture 2
 
-  This is a code bundle for Professional Portfolio Website. The original project is available at https://www.figma.com/design/MAiwAJzVipZiOhvIgNa3aC/Professional-Portfolio-Website.
+Team Name: SEW'SERA
 
-  ## Running the code
+Repository: (https://github.com/paulamonta/ITE412_SIA2_TeamSew-s-Era_Project.git)
 
-  Run `npm i` to install the dependencies.
+## Team Members & Roles
+MONTA PAULA S.- PROJECT LEADER
+ALFELOR FAITH ANN BLESSING - DOCUMENTER
+SANTUA JOSE FERNAND - DIAGRAMMER
+ABORDE AARON WINSTON - PRESENTER
 
-  Run `npm run dev` to start the development server.
-  
+## Project Summary
+The system will allow customers to browse tailor profiles, compare services and prices, locate nearby tailors using GPS mapping, check availability, book appointments, communicate through in-app chat, and track order progress. Tailors will be able to showcase their services, manage appointments, and receive customer bookings. The initial MVP will focus on search, booking, profile browsing, and order tracking, while full payment integration and advanced analytics will not be included in the early stage.
+
+## Repository Structure
+- /docs — project documentation
+- /src — source code
+- /tests — test cases
+- /integration — integration scripts/configurations
+
+## Getting Started
+
+Clone the repository:
+
+`git clone https://github.com/paulamonta/ITE412_SIA2_TeamSew-s-Era_Project.git`
+
+Default branch: `main`
+
+## Collaboration Workflow
+
+1. Create a branch
+2. Make changes
+3. Commit changes
+4. Push changes
+5. Open a Pull Request
+6. Review
+7. Merge
