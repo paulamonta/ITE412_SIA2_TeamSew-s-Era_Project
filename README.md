@@ -38,3 +38,21 @@ Default branch: `main`
 5. Open a Pull Request
 6. Review
 7. Merge
+
+
+
+## REST API Usage
+
+To run the Sews'Era REST API:
+
+1. Open the project repository in Visual Studio Code.
+2. Open the terminal.
+3. Run `node src/api/server.js`.
+4. Open Postman and test the API endpoints.
+
+### API Endpoints
+
+- GET `/customers` – Retrieve all customer records.
+- POST `/customers` – Add a new customer.
+- GET `/orders` – Retrieve all order records.
+- POST `/orders` – Add a new order.
