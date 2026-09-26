@@ -34,6 +34,12 @@ The system will allow customers to browse tailor profiles, compare services and 
 - Loyalty & Customer Retention Services
 - Enterprise Partnerships / Uniform Supplier Integration
 
+### Database
+- MySQL
+- Database Design / ERD
+- User, Tailor, Service, Availability, Booking, and Order tables
+- Data validation and integrity
+
 ## 3. Stakeholders
 
 - Customers
@@ -61,3 +67,30 @@ The system will allow customers to browse tailor profiles, compare services and 
 ## 5. Integration Pattern & Rationale
 
 The Sew’sEra system will use a REST API integration pattern to allow its core modules to communicate through HTTP requests and JSON responses. The REST API will provide endpoints for retrieving and adding customer and order records. REST was selected because it uses standard HTTP methods, is simple to implement using Node.js and Express, and can be tested using Postman. This approach provides a simple communication layer between the system modules.
+
+- Jest (Unit Testing)
+
+### Order Management
+- Create order after confirmed booking
+- Order status tracking
+- Update order status
+- Customer order history
+- Tailor order management
+
+Order Status:
+Pending → Confirmed → In Progress → Ready → Completed
+
+
+### Notification System
+- Booking confirmation
+- Booking reminder
+- Booking cancellation notification
+- Order status updates
+- Availability/appointment notifications
+
+  ### GPS / Map Integration
+- Browser/device geolocation
+- Map display
+- Tailor location markers
+- Distance-based tailor search
+- Location permission handling
