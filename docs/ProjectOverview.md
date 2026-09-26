@@ -77,19 +77,7 @@ The system will allow customers to browse tailor profiles, compare services and 
 - MySQL
 - ERD (Entity Relationship Diagram)
 
-## 5. Integration Pattern & Rationale
-
-The Sew’sEra system will use a REST API integration pattern to allow its core modules to communicate through HTTP requests and JSON responses. The REST API will provide endpoints for retrieving and adding customer and order records. REST was selected because it uses standard HTTP methods, is simple to implement using Node.js and Express, and can be tested using Postman. This approach provides a simple communication layer between the system modules.
-
-**Rationale:**
-- **Centralized Communication:** Ang Hub ay nagbibigay ng single point of integration, na nagpapadali sa maintenance at monitoring.
-- **Loose Coupling:** Binabawasan ang direct dependencies sa pagitan ng modules, kaya mas madaling i-update o palitan ang isang module nang hindi naaapektuhan ang iba.
-- **Scalability:** Madaling magdagdag ng bagong modules o external services sa pamamagitan ng pagkonekta sa Hub.
-- **Security:** Ang lahat ng authentication at authorization ay dumadaan sa Hub, na nagbibigay ng consistent security layer.
-- **Testability:** Ang REST API endpoints ay madaling i-test gamit ang Postman.
-
-
-### Order Management
+  ### Order Management
 - Create order after confirmed booking
 - Order status tracking
 - Update order status
@@ -113,3 +101,15 @@ Pending → Confirmed → In Progress → Ready → Completed
 - Tailor location markers
 - Distance-based tailor search
 - Location permission handling
+
+## 5. Integration Pattern & Rationale
+
+The Sew’sEra system will use a REST API integration pattern to allow its core modules to communicate through HTTP requests and JSON responses. The REST API will provide endpoints for retrieving and adding customer and order records. REST was selected because it uses standard HTTP methods, is simple to implement using Node.js and Express, and can be tested using Postman. This approach provides a simple communication layer between the system modules.
+
+**Rationale:**
+- **Centralized Communication:** Ang Hub ay nagbibigay ng single point of integration, na nagpapadali sa maintenance at monitoring.
+- **Loose Coupling:** Binabawasan ang direct dependencies sa pagitan ng modules, kaya mas madaling i-update o palitan ang isang module nang hindi naaapektuhan ang iba.
+- **Scalability:** Madaling magdagdag ng bagong modules o external services sa pamamagitan ng pagkonekta sa Hub.
+- **Security:** Ang lahat ng authentication at authorization ay dumadaan sa Hub, na nagbibigay ng consistent security layer.
+- **Testability:** Ang REST API endpoints ay madaling i-test gamit ang Postman.
+
