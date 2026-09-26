@@ -38,3 +38,20 @@ Default branch: `main`
 5. Open a Pull Request
 6. Review
 7. Merge
+
+## API Usage Notes
+
+To run the REST API:
+
+1. Go to the `src/api` folder.
+2. Run:
+
+```bash
+node server.js
+
+### Endpoints
+
+- `GET /customers`
+- `POST /customers`
+- `GET /orders`
+- `POST /orders`
