@@ -62,6 +62,8 @@ The system will allow customers to browse tailor profiles, compare services and 
 
 ### Integration Approach
 - REST API
+- Message Queue (Middleware)
+- WebSocket (Messaging)
 
 ### Repository/Services
 - GitHub
