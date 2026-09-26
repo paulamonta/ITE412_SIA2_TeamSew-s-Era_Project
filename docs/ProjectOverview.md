@@ -28,6 +28,9 @@ The system will allow customers to browse tailor profiles, compare services and 
 - GPS-Enabled Tailor Location
 - Availability Checking
 - Booking Management
+- Order Status Tracking
+- In-App Chat (Basic)
+- Booking Notifications
 
 ### Out-of-Scope
 
