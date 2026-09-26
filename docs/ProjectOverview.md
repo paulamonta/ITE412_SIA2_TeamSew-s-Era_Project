@@ -16,6 +16,9 @@ The system will allow customers to browse tailor profiles, compare services and 
 - Availability / Schedule Management
 - Booking / Appointment System
 - GPS / Map Integration
+- Order Tracking Module
+- Chat/Messaging Module
+- Notification System
 
 ### In-Scope Features
 
