@@ -40,7 +40,6 @@ Default branch: `main`
 7. Merge
 
 
-
 ## REST API Usage
 
 To run the Sews'Era REST API:
@@ -56,3 +55,21 @@ To run the Sews'Era REST API:
 - POST `/customers` – Add a new customer.
 - GET `/orders` – Retrieve all order records.
 - POST `/orders` – Add a new order.
+
+## API Usage Notes
+
+To run the REST API:
+
+1. Go to the `src/api` folder.
+2. Run:
+
+```bash
+node server.js
+
+### Endpoints
+
+- `GET /customers`
+- `POST /customers`
+- `GET /orders`
+- `POST /orders`
+
