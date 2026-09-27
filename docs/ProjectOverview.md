@@ -163,10 +163,15 @@ The **GPS/Map API** is an external service connected to the Hub. When a customer
 
 The **Push Notification Service** is another external service used by the Hub to send notifications to customers and tailors. All notifications pass through the Hub before being delivered to the appropriate recipient.
 
----
 
 ## 7. Messaging Workflow
 
-The Sew’sEra system uses a **message queue** for asynchronous communication between the **Booking Module** (Producer) and the **Tailor/Approval Module** (Consumer). When a customer books an appointment, the Booking Module sends a message to the queue containing the booking details, including the customer name, tailor name, service, date, and time.
+The Sew’sEra system uses a **simple in-memory message queue** to demonstrate asynchronous communication between the **Booking Module** (Producer) and the **Tailor Module** (Consumer). When a customer books an appointment, the Booking Module receives the booking request and places the booking details into the message queue. The message contains information such as the customer name, tailor name, service, date, and time.
 
-The Consumer (**Tailor Module**) processes messages from the queue asynchronously. For example, if the booking is for an available slot, it is automatically approved. If the slot is unavailable, the booking is rejected and a notification is sent back to the customer.
+The **Tailor Module** then retrieves and processes the queued message asynchronously. If the requested appointment slot is available, the booking is approved. If the slot is unavailable, the booking is rejected, and a notification is sent back to the customer.
+
+The messaging workflow follows this process:
+
+**Customer Booking → Booking Module (Producer) → Message Queue → Tailor Module (Consumer) → Booking Processing → Customer Notification**
+
+The middleware prototype uses **Node.js** to demonstrate asynchronous producer-consumer communication without requiring a database or external messaging server. The in-memory queue allows booking messages to be processed one at a time while demonstrating the basic concept of message-based integration.
