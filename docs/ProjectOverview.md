@@ -25,7 +25,6 @@ The system will allow customers to browse tailor profiles, compare services and 
 - Tailor Search
 - GPS-Enabled Tailor Location
 - Tailor Profile Browsing
-- GPS-Enabled Tailor Location
 - Availability Checking
 - Booking Management
 - Order Status Tracking
@@ -41,10 +40,11 @@ The system will allow customers to browse tailor profiles, compare services and 
 - Enterprise Partnerships / Uniform Supplier Integration
 
 ### Database
+
 - MySQL
 - Database Design / ERD
-- User, Tailor, Service, Availability, Booking, and Order tables
-- Data validation and integrity
+- User, Tailor, Service, Availability, Booking, and Order Tables
+- Data Validation and Integrity
 
 ## 3. Stakeholders
 
@@ -56,46 +56,54 @@ The system will allow customers to browse tailor profiles, compare services and 
 ## 4. Tools & Technologies
 
 ### Languages/Frameworks
+
 - Node.js + Express (Backend REST API)
 - JavaScript (Programming Language)
 - HTML/CSS (Frontend for MVP)
 
 ### Integration Approach
+
 - REST API
 - Message Queue (Middleware)
 - WebSocket (Messaging)
 
 ### Repository/Services
+
 - GitHub
 - Git
 
 ### Testing Tools
+
 - Jest (Unit Testing)
 - Postman (API Testing)
 
 ### Database
+
 - MySQL
 - ERD (Entity Relationship Diagram)
 
-  ### Order Management
+### Order Management
+
 - Create order after confirmed booking
 - Order status tracking
 - Update order status
 - Customer order history
 - Tailor order management
 
-Order Status:
-Pending → Confirmed → In Progress → Ready → Completed
+**Order Status:**
 
+`Pending → Confirmed → In Progress → Ready → Completed`
 
 ### Notification System
+
 - Booking confirmation
 - Booking reminder
 - Booking cancellation notification
 - Order status updates
 - Availability/appointment notifications
 
-  ### GPS / Map Integration
+### GPS / Map Integration
+
 - Browser/device geolocation
 - Map display
 - Tailor location markers
@@ -106,48 +114,59 @@ Pending → Confirmed → In Progress → Ready → Completed
 
 The Sew’sEra system will use a REST API integration pattern to allow its core modules to communicate through HTTP requests and JSON responses. The REST API will provide endpoints for retrieving and adding customer and order records. REST was selected because it uses standard HTTP methods, is simple to implement using Node.js and Express, and can be tested using Postman. This approach provides a simple communication layer between the system modules.
 
-**Rationale:**
-- **Centralized Communication:** Ang Hub ay nagbibigay ng single point of integration, na nagpapadali sa maintenance at monitoring.
-- **Loose Coupling:** Binabawasan ang direct dependencies sa pagitan ng modules, kaya mas madaling i-update o palitan ang isang module nang hindi naaapektuhan ang iba.
-- **Scalability:** Madaling magdagdag ng bagong modules o external services sa pamamagitan ng pagkonekta sa Hub.
-- **Security:** Ang lahat ng authentication at authorization ay dumadaan sa Hub, na nagbibigay ng consistent security layer.
-- **Testability:** Ang REST API endpoints ay madaling i-test gamit ang Postman.
+### Rationale
 
-  ## 6. High-Level System Overview
+- **Centralized Communication:** The Hub provides a single point of integration, making maintenance and monitoring easier.
+- **Loose Coupling:** It reduces direct dependencies between modules, making it easier to update or replace one module without affecting the others.
+- **Scalability:** New modules or external services can be easily added by connecting them to the Hub.
+- **Security:** All authentication and authorization pass through the Hub, providing a consistent security layer.
+- **Testability:** REST API endpoints can be easily tested using Postman.
+
+## 6. High-Level System Overview
 
 ### Major Modules/Subsystems
 
-| Module Name | Function/Responsibility |
-| :--- | :--- |
-| **Customer Module** | Handle customer registration, profile management, browsing tailor profiles, comparing services/prices, and booking appointments. |
-| **Tailor Module** | Allow tailors to showcase services, manage appointments, update availability, and receive customer bookings. |
-| **Booking Module** | Manage appointment scheduling, confirmation, cancellation, and notifications. |
-| **Order Tracking Module** | Track order progress and provide real-time status updates to customers. |
-| **Chat/Messaging Module** | Enable in-app communication between customers and tailors. |
-| **Central Hub (API Gateway)** | Route all communication, handle authentication, manage message queuing, and provide a single integration point. |
-| **Central Database** | Store persistent data including user accounts, tailor profiles, bookings, orders, and messages. |
+**Customer Module**  
+Handles customer registration, profile management, browsing tailor profiles, comparing services and prices, and booking appointments.
+
+**Tailor Module**  
+Allows tailors to showcase their services, manage appointments, update availability, and receive customer bookings.
+
+**Booking Module**  
+Manages appointment scheduling, confirmation, cancellation, and notifications.
+
+**Order Tracking Module**  
+Tracks order progress and provides real-time status updates to customers.
+
+**Chat/Messaging Module**  
+Enables in-app communication between customers and tailors.
+
+**Central Hub (API Gateway)**  
+Routes all communication, handles authentication, manages message queuing, and provides a single integration point.
+
+**Central Database**  
+Stores persistent data, including user accounts, tailor profiles, bookings, orders, and messages.
 
 ### External Systems/Interfaces
 
-- **GPS/Map API** – Para sa distance-based tailor search at location mapping.
-- **Push Notification Service** – Para sa booking confirmations, reminders, at order status updates.
-- **MySQL Database** – Central data storage para sa lahat ng modules.
+- **GPS/Map API** – Used for distance-based tailor search and location mapping.
+- **Push Notification Service** – Used for booking confirmations, reminders, and order status updates.
+- **MySQL Database** – Provides central data storage for all modules.
 
 ### Data Flow Summary
 
-Sa Sew’sEra system, ang lahat ng communication sa pagitan ng modules ay dumadaan sa isang **Central Hub (API Gateway)**. Kapag ang isang customer ay nag-browse ng tailor profiles o nag-book ng appointment, ang **Customer Module** ay nagpapadala ng request sa Hub sa pamamagitan ng REST API. Ang Hub ay nag-ruroute ng request sa appropriate module, tulad ng **Booking Module**, na nagpo-proseso ng appointment at nag-iimbak ng detalye sa **Central Database**.
+In the Sew’sEra system, all communication between modules passes through the **Central Hub (API Gateway)**. When a customer browses tailor profiles or books an appointment, the **Customer Module** sends a request to the Hub through the REST API. The Hub routes the request to the appropriate module, such as the **Booking Module**, which processes the appointment and stores the details in the **Central Database**.
 
-Kapag ang booking ay confirmed, ang Hub ay nagpapasa ng confirmation sa **Tailor Module** para makita at ma-manage ng tailor ang appointment. Ang **Order Tracking Module** ay tumatanggap ng status updates mula sa Tailor Module sa pamamagitan ng Hub at nagpapadala ng progress notifications pabalik sa Customer Module. Samantala, ang **Chat/Messaging Module** ay humahawak ng real-time communication sa pagitan ng customers at tailors, kung saan ang mga messages ay niruroute sa Hub at iniimbak sa Central Database.
+When a booking is confirmed, the Hub forwards the confirmation to the **Tailor Module** so that the tailor can view and manage the appointment. The **Order Tracking Module** receives status updates from the Tailor Module through the Hub and sends progress notifications back to the Customer Module. Meanwhile, the **Chat/Messaging Module** handles real-time communication between customers and tailors, with messages routed through the Hub and stored in the Central Database.
 
-Ang **GPS/Map API** ay isang external service na konektado sa Hub. Kapag ang customer ay nag-search ng malapit na tailor, ang Customer Module ay nagpapadala ng location data sa Hub, na siyang kumokonekta sa GPS API para sa distance-based search. Ang resulta ay ibinabalik sa Customer Module.
+The **GPS/Map API** is an external service connected to the Hub. When a customer searches for a nearby tailor, the Customer Module sends location data to the Hub, which connects to the GPS API for distance-based search. The results are then returned to the Customer Module.
 
-Ang **Push Notification Service** ay isa pang external service na ginagamit ng Hub para magpadala ng notifications sa customers at tailors. Ang lahat ng notifications ay dumadaan sa Hub bago maipadala sa tamang recipient.
+The **Push Notification Service** is another external service used by the Hub to send notifications to customers and tailors. All notifications pass through the Hub before being delivered to the appropriate recipient.
 
 ---
 
 ## 7. Messaging Workflow
 
-Ang Sew’sEra system ay gumagamit ng **message queue** para sa asynchronous communication sa pagitan ng **Booking Module** (Producer) at **Tailor/Approval Module** (Consumer). Kapag ang isang customer ay nag-book ng appointment, ang Booking Module ay nagpapadala ng mensahe sa queue na naglalaman ng booking details (customer name, tailor name, service, date, time).
+The Sew’sEra system uses a **message queue** for asynchronous communication between the **Booking Module** (Producer) and the **Tailor/Approval Module** (Consumer). When a customer books an appointment, the Booking Module sends a message to the queue containing the booking details, including the customer name, tailor name, service, date, and time.
 
-Ang Consumer (Tailor Module) ay nagpo-proseso ng mga mensahe mula sa queue nang asynchronous. Halimbawa, kung ang booking ay para sa isang available na slot, ito ay awtomatikong na-a-approve. Kung hindi available, ito ay ire-reject at magpapadala ng notification pabalik sa customer.
-
+The Consumer (**Tailor Module**) processes messages from the queue asynchronously. For example, if the booking is for an available slot, it is automatically approved. If the slot is unavailable, the booking is rejected and a notification is sent back to the customer.
