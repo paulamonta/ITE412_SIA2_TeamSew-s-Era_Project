@@ -67,9 +67,8 @@ To run the REST API:
 node server.js
 
 ### Endpoints
-
-- `GET /customers`
-- `POST /customers`
-- `GET /orders`
-- `POST /orders`
+GET http://localhost:3000/customers
+POST http://localhost:3000/customers
+GET http://localhost:3000/orders
+POST http://localhost:3000/orders
 
